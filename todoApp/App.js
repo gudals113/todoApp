@@ -7,17 +7,17 @@ export default function App () {
   const day = new Date()
   const timeid = Date.now();
   const [toDos, setNewToDos] = useState([]);
-  //10.0.2.2:4700
+
   //[DB function]
   const getData = () => {
-      fetch('http://3.35.25.35:4700/todos')
+      fetch('http://10.0.2.2:8080/todos')
       .then(res => res.json())
       .then(res => setNewToDos(res))
       .catch((e)=>{console.log(e)})
   } 
 
   const storeData = (data) => {
-       fetch('http://3.35.25.35:4700/todos', {
+       fetch('http://10.0.2.2:8080/todos', {
         method:'POST',
         body:JSON.stringify({
           todoid:data.todoid,
@@ -34,7 +34,7 @@ export default function App () {
   }
 
   const delteData = (id) => {
-    fetch(`http://3.35.25.35:4700/todos/${id}`, {
+    fetch(`http://10.0.2.2:8080/todos/${id}`, {
       method:"DELETE"
     })
     .then(res=>res.json())
@@ -43,7 +43,7 @@ export default function App () {
   }
 
   const updateData = (data) => {
-    fetch(`http://3.35.25.35:4700/todos/${data.todoid}`, {
+    fetch(`http://10.0.2.2:8080/todos/${data.todoid}`, {
       method:"PUT",
       body:JSON.stringify({
         todoid:data.todoid,

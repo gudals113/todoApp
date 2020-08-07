@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const bookRouter = require('./routes/index')
 const cors = require('cors')
 const app = express();
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 4700;
 
 // Node.js의 native Promise 사용
 mongoose.Promise = global.Promise;

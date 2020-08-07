@@ -10,14 +10,14 @@ export default function App () {
 
   //[DB function]
   const getData = () => {
-      fetch('http://10.0.2.2:8080/todos')
+      fetch('http://10.0.2.2:80/todos')
       .then(res => res.json())
       .then(res => setNewToDos(res))
       .catch((e)=>{console.log(e)})
   } 
 
   const storeData = (data) => {
-       fetch('http://10.0.2.2:8080/todos', {
+       fetch('http://10.0.2.2:80/todos', {
         method:'POST',
         body:JSON.stringify({
           todoid:data.todoid,
@@ -34,7 +34,7 @@ export default function App () {
   }
 
   const delteData = (id) => {
-    fetch(`http://10.0.2.2:8080/todos/${id}`, {
+    fetch(`http://10.0.2.2:80/todos/${id}`, {
       method:"DELETE"
     })
     .then(res=>res.json())
@@ -43,7 +43,7 @@ export default function App () {
   }
 
   const updateData = (data) => {
-    fetch(`http://10.0.2.2:8080/todos/${data.todoid}`, {
+    fetch(`http://10.0.2.2:80/todos/${data.todoid}`, {
       method:"PUT",
       body:JSON.stringify({
         todoid:data.todoid,

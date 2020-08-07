@@ -10,14 +10,14 @@ export default function App () {
 
   //[DB function]
   const getData = () => {
-      fetch('http://10.0.2.2:80/todos')
+      fetch('http://ec2-3-34-185-166.ap-northeast-2.compute.amazonaws.com:4700/todos')
       .then(res => res.json())
       .then(res => setNewToDos(res))
       .catch((e)=>{console.log(e)})
   } 
 
   const storeData = (data) => {
-       fetch('http://10.0.2.2:80/todos', {
+       fetch('http://ec2-3-34-185-166.ap-northeast-2.compute.amazonaws.com:4700/todos', {
         method:'POST',
         body:JSON.stringify({
           todoid:data.todoid,
@@ -34,7 +34,7 @@ export default function App () {
   }
 
   const delteData = (id) => {
-    fetch(`http://10.0.2.2:80/todos/${id}`, {
+    fetch(`http://ec2-3-34-185-166.ap-northeast-2.compute.amazonaws.com:4700/todos/${id}`, {
       method:"DELETE"
     })
     .then(res=>res.json())
@@ -43,7 +43,7 @@ export default function App () {
   }
 
   const updateData = (data) => {
-    fetch(`http://10.0.2.2:80/todos/${data.todoid}`, {
+    fetch(`http://ec2-3-34-185-166.ap-northeast-2.compute.amazonaws.com:4700/todos/${data.todoid}`, {
       method:"PUT",
       body:JSON.stringify({
         todoid:data.todoid,

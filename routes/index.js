@@ -13,29 +13,29 @@ router.get('/', (req, res)=>{
   })
 })
 
-// GET SINGLE Todos
-router.get('/:todoid', (req,res)=>{
-  Todo.findOne({todoid:req.params.todoid}, (err,todo)=>{
-      if (err) {
-          return res.status(500).json({error:err});
-      } if (!book) {
-          return res.status(404).json({error:'todo not found'});
-      } 
-      res.json(todo);
-  })
-});
+// // GET SINGLE Todos
+// router.get('/:todoid', (req,res)=>{
+//   Todo.findOne({todoid:req.params.todoid}, (err,todo)=>{
+//       if (err) {
+//           return res.status(500).json({error:err});
+//       } if (!book) {
+//           return res.status(404).json({error:'todo not found'});
+//       } 
+//       res.json(todo);
+//   })
+// });
 
-// GET Todo BY Content
-router.get('/content/:content', (req,res)=>{
-  Todo.find({content:req.params.content}, {todoid:0, content:1, completed:1}, (err,todo)=>{
-      if(err) {
-          return res.status(500).json({error:err});
-      } if (todo.length ===0) {
-          return res.status(404).json({error:'book not found'});
-      }
-      res.json(todo)
-  })
-});
+// // GET Todo BY Content
+// router.get('/content/:content', (req,res)=>{
+//   Todo.find({content:req.params.content}, {todoid:0, content:1, completed:1}, (err,todo)=>{
+//       if(err) {
+//           return res.status(500).json({error:err});
+//       } if (todo.length ===0) {
+//           return res.status(404).json({error:'book not found'});
+//       }
+//       res.json(todo)
+//   })
+// });
 
 // Create Todos
 router.post('/', (req, res)=> {

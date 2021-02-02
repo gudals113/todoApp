@@ -2,12 +2,12 @@ import React, {useState, useEffect} from 'react';
 import Header from './Header'
 import Body from './Body'
 import { StyleSheet, Text, View, } from 'react-native';
+// const crud = require('./libs/crud.js')
 
 export default function App () {
+  const [toDos, setNewToDos] = useState([]);
   const day = new Date()
   const timeid = Date.now();
-  const [toDos, setNewToDos] = useState([]);
-
   //[DB function]
   const getData = () => {
       fetch('http://ec2-3-34-185-166.ap-northeast-2.compute.amazonaws.com:4700/todos')
@@ -59,6 +59,11 @@ export default function App () {
     .catch((e)=>{console.log(e)}) 
   }
 
+// const frontFunction = () => {
+
+// }
+
+
 //[front function]
   const addToDos = (toDo) => {
     const newToDo = {
@@ -92,8 +97,6 @@ export default function App () {
   useEffect(()=>{
     getData()
   },[])
-
-
 
   return (
   <View style={styles.container}>
